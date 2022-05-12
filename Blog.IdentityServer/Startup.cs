@@ -9,6 +9,7 @@ using Blog.IdentityServer.Data;
 using Blog.IdentityServer.Models;
 using System.Reflection;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Http;
 using Blog.IdentityServer.Extensions;
@@ -190,7 +191,7 @@ namespace Blog.IdentityServer
                     // options.TokenCleanupInterval = 15; // frequency in seconds to cleanup stale grants. 15 is useful during debugging
                 });
 
-            builder.AddDeveloperSigningCredential();
+            // builder.AddDeveloperSigningCredential(true,"文件名").AddSigningCredential(new X509Certificate2("路径","密码"));
             if (Environment.IsDevelopment())
             {
                 builder.AddDeveloperSigningCredential();
